@@ -1,0 +1,16 @@
+# Reject: duplicate logical field_id via list form (SPEC §11.1 / Step 4-PLAN).
+policy_profile: demo_readonly
+datasets:
+  sales_inventory_daily:
+    physical_table: v_sales_inventory_daily
+    title: Sales
+    description: demo
+    capabilities:
+      - READ_DETAIL
+    default_limit: 50
+    max_limit: 100
+    allowed_fields:
+      - field_id: product_id
+        physical_column: product_id
+      - field_id: product_id
+        physical_column: product_id_dup

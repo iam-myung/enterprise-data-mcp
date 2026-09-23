@@ -1,0 +1,62 @@
+<template>
+<div data-hf-id="hf-6r73" id="root" data-composition-id="05-result" data-start="0" data-duration="9" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-v6iw" class="clip" data-start="0" data-duration="9" data-track-index="0" id="f05-bg"></div>
+  <div data-hf-id="hf-sshm" class="clip" data-start="0" data-duration="9" data-track-index="1" id="f05-stage">
+    <div data-hf-id="hf-omby" id="f05-left">
+      <p data-hf-id="hf-s0ls" class="f05-h">Agent 回答</p>
+      <p data-hf-id="hf-nzs8" id="f05-body">本月 Top 5 客户已按销售额排序返回。</p>
+      <div data-hf-id="hf-0u1z" id="f05-chip">MCP · call_id · 可回看</div>
+    </div>
+    <div data-hf-id="hf-4oxx" id="f05-right">
+      <p data-hf-id="hf-r4ll" class="f05-h">查询结果</p>
+      <div data-hf-id="hf-7w5t" class="f05-row" id="f05-r1"><span data-hf-id="hf-cn7x">华信科技</span><b data-hf-id="hf-lqob" id="f05-v1">¥ 0.0 万</b></div>
+      <div data-hf-id="hf-bu9u" class="f05-row" id="f05-r2"><span data-hf-id="hf-wiyp">远航物流</span><b data-hf-id="hf-3mve" id="f05-v2">¥ 0.0 万</b></div>
+      <div data-hf-id="hf-fsdv" class="f05-row" id="f05-r3"><span data-hf-id="hf-6uh7">星河零售</span><b data-hf-id="hf-l7y9" id="f05-v3">¥ 0.0 万</b></div>
+      <div data-hf-id="hf-sawc" class="f05-row" id="f05-r4"><span data-hf-id="hf-s33v">青禾制造</span><b data-hf-id="hf-3v8w" id="f05-v4">¥ 0.0 万</b></div>
+      <div data-hf-id="hf-t2k5" class="f05-row" id="f05-r5"><span data-hf-id="hf-7v5c">云端软件</span><b data-hf-id="hf-elrj" id="f05-v5">¥ 0.0 万</b></div>
+    </div>
+    <div data-hf-id="hf-tdnd" id="f05-flash"></div>
+  </div>
+</div>
+<style>
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");font-weight:400;font-display:block;}
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");font-weight:700;font-display:block;}
+#root{position:relative;width:100%;height:100%;overflow:hidden;color:#1a1a1a}
+.clip{position:absolute}
+#f05-bg{inset:0;background:radial-gradient(1000px 700px at 50% 40%,#f7efe6 0%,#e8e0d6 100%)}
+#f05-stage{inset:0}
+#f05-left,#f05-right{position:absolute;top:140px;width:780px;height:720px;background:#fffdf8;border-radius:20px;border:1px solid rgba(26,26,26,.08);padding:40px 44px;box-sizing:border-box;box-shadow:0 20px 60px rgba(26,26,26,.08);opacity:0}
+#f05-left{left:100px}#f05-right{right:100px}
+.f05-h{margin:0 0 28px;font-family:"Noto Sans SC",sans-serif;font-size:22px;color:rgba(26,26,26,.68)}
+#f05-body{margin:0;font-family:"Noto Sans SC",sans-serif;font-size:36px;font-weight:700;line-height:1.5;opacity:0}
+#f05-chip{margin-top:48px;display:inline-block;padding:14px 22px;background:#1a1a1a;color:#f5f0e8;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:18px;opacity:0;box-shadow:0 0 0 0 rgba(204,120,92,.4)}
+.f05-row{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;margin-bottom:14px;background:#f7f2ea;border-radius:14px;border-left:5px solid #cc785c;opacity:0}
+.f05-row span{font-family:"Noto Sans SC",sans-serif;font-size:26px;font-weight:700}
+.f05-row b{font-family:"JetBrains Mono",monospace;font-size:24px;color:#a85a40;font-weight:500}
+#f05-flash{position:absolute;inset:0;background:radial-gradient(circle at 70% 45%,rgba(204,120,92,.25),transparent 55%);opacity:0;pointer-events:none}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(()=>{
+  const tl=gsap.timeline({paused:true});
+  const vals=[128.4,96.2,81.7,74.1,68.9];
+  const els=["f05-v1","f05-v2","f05-v3","f05-v4","f05-v5"].map(id=>document.getElementById(id));
+  const counters=vals.map(()=>({n:0}));
+  tl.fromTo("#f05-left",{opacity:0,x:-80,rotateY:18},{opacity:1,x:0,rotateY:0,duration:0.75,ease:"power4.out"},0.1);
+  tl.fromTo("#f05-right",{opacity:0,x:80,rotateY:-18},{opacity:1,x:0,rotateY:0,duration:0.75,ease:"power4.out"},0.2);
+  tl.fromTo("#f05-body",{opacity:0,y:20,scale:0.96},{opacity:1,y:0,scale:1,duration:0.6,ease:"power3.out"},0.85);
+  ["#f05-r1","#f05-r2","#f05-r3","#f05-r4","#f05-r5"].forEach((sel,i)=>{
+    const t=1.6+i*0.28;
+    tl.fromTo(sel,{opacity:0,x:60,scale:0.92,rotateZ:2},{opacity:1,x:0,scale:1,rotateZ:0,duration:0.45,ease:"back.out(1.8)"},t);
+    tl.to(counters[i],{n:vals[i],duration:0.7,ease:"power2.out",onUpdate:()=>{els[i].textContent=`¥ ${counters[i].n.toFixed(1)} 万`;}},t+0.1);
+    tl.to(sel,{boxShadow:"0 0 0 8px rgba(204,120,92,.12)",duration:0.25,yoyo:true,repeat:1},t+0.15);
+  });
+  tl.fromTo("#f05-flash",{opacity:0},{opacity:1,duration:0.25,yoyo:true,repeat:1},3.4);
+  tl.fromTo("#f05-chip",{opacity:0,y:30,scale:0.7},{opacity:1,y:0,scale:1,duration:0.55,ease:"back.out(2.2)"},5.0);
+  tl.to("#f05-chip",{boxShadow:"0 0 0 14px rgba(204,120,92,0)",duration:0.7},5.3);
+  tl.to("#f05-r1",{scale:1.03,duration:0.35,yoyo:true,repeat:1,ease:"power1.inOut"},6.2);
+  window.__timelines=window.__timelines||{};
+  window.__timelines["05-result"]=tl;
+})();
+</script>
+</template>

@@ -1,0 +1,22 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+var/
+.coverage
+htmlcov/
+.cursor/
+.docs/
+工程指导.html
+
+# HyperFrames local caches / render outputs (keep composition sources)
+videos/**/.thumbnails/
+videos/**/.media/
+videos/**/node_modules/
+videos/**/renders/

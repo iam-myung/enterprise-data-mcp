@@ -1,0 +1,69 @@
+[importlinter]
+root_packages =
+    enterprise_data_mcp
+    enterprise_data_mcp_demo
+include_external_packages = True
+
+[importlinter:contract:domain-independence]
+name = Domain independence from outer layers and frameworks
+type = forbidden
+source_modules =
+    enterprise_data_mcp.domain
+forbidden_modules =
+    enterprise_data_mcp.application
+    enterprise_data_mcp.adapters
+    enterprise_data_mcp.hosts
+    enterprise_data_mcp.bootstrap
+    fastmcp
+    mcp
+    pydantic
+    mysql
+    langgraph
+    opentelemetry
+    uvicorn
+    starlette
+
+[importlinter:contract:application-independence]
+name = Application independence from adapters hosts and frameworks
+type = forbidden
+source_modules =
+    enterprise_data_mcp.application
+forbidden_modules =
+    enterprise_data_mcp.adapters
+    enterprise_data_mcp.hosts
+    fastmcp
+    mcp
+    mysql
+    langgraph
+
+[importlinter:contract:adapters-direction]
+name = Adapters must not import hosts
+type = forbidden
+source_modules =
+    enterprise_data_mcp.adapters
+forbidden_modules =
+    enterprise_data_mcp.hosts
+
+[importlinter:contract:hosts-bootstrap-direction]
+name = Bootstrap must not import hosts
+type = forbidden
+source_modules =
+    enterprise_data_mcp.bootstrap
+forbidden_modules =
+    enterprise_data_mcp.hosts
+
+[importlinter:contract:demo-isolation]
+name = Server package must not import demo package
+type = forbidden
+source_modules =
+    enterprise_data_mcp
+forbidden_modules =
+    enterprise_data_mcp_demo
+
+[importlinter:contract:demo-no-server]
+name = Demo package must not import server package
+type = forbidden
+source_modules =
+    enterprise_data_mcp_demo
+forbidden_modules =
+    enterprise_data_mcp

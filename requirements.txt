@@ -1,0 +1,11 @@
+# Generated from pyproject.toml [project.dependencies]
+# Install: pip install -r requirements.txt
+# Prefer editable install for this repo: pip install -e .
+
+fastmcp==4.0.3
+pyyaml==6.0.3
+pydantic==2.13.4
+mysql-connector-python==9.3.0
+opentelemetry-api==1.44.0
+opentelemetry-sdk==1.44.0
+prometheus_client==0.26.0

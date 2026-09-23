@@ -1,0 +1,4 @@
+企业数据直连 MCP 服务
+一次只读查询：从 Agent 经 MCP 到达 MySQL，结果与审计路径一起演清楚
+Agent → MCP Host → Query Service → MySQL → 结果回写 → 审计
+只读策略 · stdio / Streamable HTTP / SSE · Demo Agent

@@ -1,0 +1,271 @@
+# SPEC §11.3 golden queries — hand-calculated constants (Step 6.1).
+# origin: hand_calculated — static constants only; do not regenerate from runtime queries.
+meta:
+  version: 1
+  origin: hand_calculated
+  reference_clock_utc: "2026-09-13T00:00:00Z"
+  business_timezone: "Asia/Shanghai"
+  dataset_id: sales_inventory_daily
+  notes: >
+    Expectations match docker/mysql/init golden seed + documented bulk formulas.
+    Demo week window: 2026-09-07 .. 2026-09-13 inclusive.
+
+queries:
+  GQ-01:
+    capability: detail_projection
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [product_id, product_name, business_date, units_sold]
+      filters:
+        - {field_id: product_id, operator: EQ, value: P001}
+      aggregations: []
+      group_by: []
+      order_by:
+        - {field_id: business_date, direction: ASC}
+      limit: 20
+    expected:
+      result_status: NON_EMPTY
+      columns: [product_id, product_name, business_date, units_sold]
+      rows:
+        - [P001, Alpha Widget, "2026-09-01", 1]
+        - [P001, Alpha Widget, "2026-09-07", 10]
+        - [P001, Alpha Widget, "2026-09-08", 8]
+        - [P001, Alpha Widget, "2026-09-09", 6]
+        - [P001, Alpha Widget, "2026-09-10", 4]
+        - [P001, Alpha Widget, "2026-09-11", 2]
+        - [P001, Alpha Widget, "2026-09-12", 9]
+        - [P001, Alpha Widget, "2026-09-13", 3]
+      row_count: 8
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-02:
+    capability: date_eq_filter
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [product_id, business_date, units_sold]
+      filters:
+        - {field_id: business_date, operator: EQ, value: "2026-09-13"}
+        - {field_id: product_id, operator: EQ, value: P001}
+      aggregations: []
+      group_by: []
+      order_by: []
+      limit: 10
+    expected:
+      result_status: NON_EMPTY
+      columns: [product_id, business_date, units_sold]
+      rows:
+        - [P001, "2026-09-13", 3]
+      row_count: 1
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-03:
+    capability: date_between_filter
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [business_date, product_id, units_sold]
+      filters:
+        - {field_id: product_id, operator: EQ, value: P001}
+        - {field_id: business_date, operator: BETWEEN, value: ["2026-09-07", "2026-09-08"]}
+      aggregations: []
+      group_by: []
+      order_by:
+        - {field_id: business_date, direction: ASC}
+      limit: 10
+    expected:
+      result_status: NON_EMPTY
+      columns: [business_date, product_id, units_sold]
+      rows:
+        - ["2026-09-07", P001, 10]
+        - ["2026-09-08", P001, 8]
+      row_count: 2
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-04:
+    capability: category_in_filter
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [product_id, category, units_sold]
+      filters:
+        - {field_id: business_date, operator: EQ, value: "2026-09-13"}
+        - {field_id: category, operator: IN, value: [Electronics, Tools]}
+      aggregations: []
+      group_by: []
+      order_by:
+        - {field_id: product_id, direction: ASC}
+      limit: 20
+    expected:
+      result_status: NON_EMPTY
+      columns: [product_id, category, units_sold]
+      rows:
+        - [P001, Electronics, 3]
+        - [P002, Electronics, 6]
+        - [P003, Tools, 2]
+        - [P004, Tools, 1]
+      row_count: 4
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-05:
+    capability: product_week_agg_stock
+    request:
+      dataset_id: sales_inventory_daily
+      projection: []
+      filters:
+        - {field_id: business_date, operator: BETWEEN, value: ["2026-09-07", "2026-09-13"]}
+        - {field_id: category, operator: IN, value: [Electronics, Tools]}
+      aggregations:
+        - {function: SUM, field_id: units_sold, alias: week_units}
+        - {function: MAX, field_id: current_stock, alias: current_stock}
+      group_by: [product_id]
+      order_by:
+        - {field_id: product_id, direction: ASC}
+      limit: 20
+    expected:
+      result_status: NON_EMPTY
+      columns: [product_id, week_units, current_stock]
+      rows:
+        - [P001, 42, 12]
+        - [P002, 76, 80]
+        - [P003, 14, 5]
+        - [P004, 7, 50]
+      row_count: 4
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-06:
+    capability: category_sales_agg
+    request:
+      dataset_id: sales_inventory_daily
+      projection: []
+      filters:
+        - {field_id: business_date, operator: BETWEEN, value: ["2026-09-07", "2026-09-13"]}
+        - {field_id: category, operator: IN, value: [Electronics, Tools]}
+      aggregations:
+        - {function: SUM, field_id: gross_sales, alias: total_sales}
+      group_by: [category]
+      order_by:
+        - {field_id: category, direction: ASC}
+      limit: 10
+    expected:
+      result_status: NON_EMPTY
+      columns: [category, total_sales]
+      rows:
+        - [Electronics, "1940.00"]
+        - [Tools, "178.50"]
+      row_count: 2
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-07:
+    capability: avg_min_max_agg
+    request:
+      dataset_id: sales_inventory_daily
+      projection: []
+      filters:
+        - {field_id: product_id, operator: EQ, value: P001}
+        - {field_id: business_date, operator: BETWEEN, value: ["2026-09-07", "2026-09-13"]}
+      aggregations:
+        - {function: AVG, field_id: units_sold, alias: avg_units}
+        - {function: MIN, field_id: units_sold, alias: min_units}
+        - {function: MAX, field_id: units_sold, alias: max_units}
+      group_by: []
+      order_by: []
+      limit: 10
+    expected:
+      result_status: NON_EMPTY
+      columns: [avg_units, min_units, max_units]
+      rows:
+        - ["6.0000", 2, 10]
+      row_count: 1
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-08:
+    capability: multi_sort_limit
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [business_date, product_id, units_sold]
+      filters:
+        - {field_id: business_date, operator: BETWEEN, value: ["2026-09-07", "2026-09-13"]}
+        - {field_id: category, operator: EQ, value: Electronics}
+      aggregations: []
+      group_by: []
+      order_by:
+        - {field_id: business_date, direction: DESC}
+        - {field_id: units_sold, direction: ASC}
+      limit: 3
+    expected:
+      result_status: NON_EMPTY
+      columns: [business_date, product_id, units_sold]
+      rows:
+        - ["2026-09-13", P001, 3]
+        - ["2026-09-13", P002, 6]
+        - ["2026-09-12", P002, 8]
+      row_count: 3
+      truncated: true
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-09:
+    capability: empty_result
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [product_id, units_sold]
+      filters:
+        - {field_id: product_id, operator: EQ, value: P999}
+      aggregations: []
+      group_by: []
+      order_by: []
+      limit: 10
+    expected:
+      result_status: EMPTY
+      columns: [product_id, units_sold]
+      rows: []
+      row_count: 0
+      truncated: false
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"
+
+  GQ-10:
+    capability: truncated_window
+    request:
+      dataset_id: sales_inventory_daily
+      projection: [business_date, product_id, units_sold, gross_sales]
+      filters:
+        - {field_id: category, operator: EQ, value: BulkCat}
+      aggregations: []
+      group_by: []
+      order_by:
+        - {field_id: business_date, direction: ASC}
+        - {field_id: product_id, direction: ASC}
+      limit: 2
+    expected:
+      result_status: NON_EMPTY
+      columns: [business_date, product_id, units_sold, gross_sales]
+      rows:
+        - ["2026-05-01", B001, 3, "15.00"]
+        - ["2026-05-01", B002, 20, "120.00"]
+      row_count: 2
+      truncated: true
+      source:
+        dataset_id: sales_inventory_daily
+        queried_at_utc: "2026-09-13T00:00:00Z"

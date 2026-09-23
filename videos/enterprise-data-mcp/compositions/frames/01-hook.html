@@ -1,0 +1,80 @@
+<template>
+<div data-hf-id="hf-tzga" id="root" data-composition-id="01-hook" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-6lm3" class="clip" data-start="0" data-duration="6" data-track-index="0" id="f01-bg">
+    <div data-hf-id="hf-3gs0" class="f01-orb" style="left:8%;top:20%"></div>
+    <div data-hf-id="hf-drdx" class="f01-orb" style="left:82%;top:18%"></div>
+    <div data-hf-id="hf-lyqo" class="f01-orb" style="left:18%;top:70%"></div>
+    <div data-hf-id="hf-v2ay" class="f01-orb" style="left:88%;top:66%"></div>
+    <div data-hf-id="hf-uozj" class="f01-orb" style="left:48%;top:10%"></div>
+    <div data-hf-id="hf-m4ok" class="f01-orb f01-orb-lg" style="left:70%;top:55%"></div>
+    <div data-hf-id="hf-h5z4" class="f01-orb f01-orb-lg" style="left:25%;top:40%"></div>
+  </div>
+  <div data-hf-id="hf-6dsn" class="clip" data-start="0" data-duration="6" data-track-index="1" id="f01-stage">
+    <div data-hf-id="hf-snw3" id="f01-ring"></div>
+    <div data-hf-id="hf-rb9v" id="f01-ring2"></div>
+    <p data-hf-id="hf-gses" id="f01-hook">企业数据，Agent 怎么直连？</p>
+    <div data-hf-id="hf-a0px" id="f01-bar-wrap">
+      <div data-hf-id="hf-k3c8" id="f01-bar"><span data-hf-id="hf-jqhv" id="f01-caret"></span><span data-hf-id="hf-mmh5" id="f01-hint"></span></div>
+    </div>
+    <div data-hf-id="hf-wh9b" id="f01-sparks">
+      <i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i>
+    </div>
+    <div data-hf-id="hf-0s65" id="f01-flash"></div>
+    <div data-hf-id="hf-e2gt" id="f01-flash2"></div>
+  </div>
+</div>
+<style>
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");font-weight:400;font-display:block;}
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");font-weight:700;font-display:block;}
+#root{position:relative;width:100%;height:100%;overflow:hidden;color:#1a1a1a}
+.clip{position:absolute}
+#f01-bg{inset:0;background:radial-gradient(1200px 700px at 50% 40%,#faf6f0 0%,#ebe4da 100%)}
+.f01-orb{position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(204,120,92,.4);box-shadow:0 0 12px rgba(204,120,92,.35)}
+.f01-orb-lg{width:18px;height:18px;background:rgba(204,120,92,.22)}
+#f01-stage{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;padding-bottom:70px}
+#f01-ring,#f01-ring2{position:absolute;left:50%;top:42%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;border:2px solid rgba(204,120,92,.55);opacity:0;pointer-events:none}
+#f01-ring2{border-color:rgba(204,120,92,.28)}
+#f01-hook{margin:0;position:relative;z-index:2;font-family:"Noto Sans SC",sans-serif;font-size:58px;font-weight:700;color:#a85a40;letter-spacing:-.02em;opacity:0;text-shadow:0 0 0 rgba(204,120,92,0)}
+#f01-bar-wrap{width:720px;height:76px;display:flex;justify-content:center;transform-origin:center center}
+#f01-bar{width:720px;height:76px;background:#fffdf8;border-radius:18px;box-shadow:0 18px 50px rgba(26,26,26,.12),0 0 0 0 rgba(204,120,92,.0);display:flex;align-items:center;padding:0 28px;gap:10px;overflow:hidden;transform-origin:center center}
+#f01-caret{width:3px;height:28px;background:#cc785c;opacity:0;box-shadow:0 0 10px rgba(204,120,92,.8)}
+#f01-hint{font-family:"Noto Sans SC",sans-serif;font-size:26px;color:rgba(26,26,26,.68);white-space:nowrap}
+#f01-sparks{position:absolute;left:50%;top:42%;width:0;height:0;pointer-events:none}
+#f01-sparks i{position:absolute;width:8px;height:8px;border-radius:50%;background:#cc785c;opacity:0;left:0;top:0}
+#f01-flash,#f01-flash2{position:absolute;inset:0;opacity:0;pointer-events:none}
+#f01-flash{background:#cc785c}
+#f01-flash2{background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.85),rgba(204,120,92,.0) 55%)}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(()=>{
+  const tl=gsap.timeline({paused:true});
+  const hint="只读查询";
+  const hintEl=document.getElementById("f01-hint");
+  const sparks=[...document.querySelectorAll("#f01-sparks i")];
+  const angles=sparks.map((_,i)=>(i/sparks.length)*Math.PI*2);
+  tl.fromTo(".f01-orb",{opacity:0,scale:0},{opacity:1,scale:1,duration:0.55,stagger:0.06,ease:"back.out(2)"},0);
+  tl.to(".f01-orb",{y:"+=18",x:"+=8",duration:2.6,yoyo:true,repeat:1,ease:"sine.inOut",stagger:0.12},0.4);
+  tl.fromTo("#f01-flash",{opacity:0.55},{opacity:0,duration:0.28,ease:"power2.out"},0.2);
+  tl.fromTo("#f01-flash2",{opacity:0.9,scale:0.4},{opacity:0,scale:1.8,duration:0.7,ease:"power3.out"},0.25);
+  tl.fromTo(["#f01-ring","#f01-ring2"],{opacity:0.9,scale:0.2},{opacity:0,scale:4.2,duration:1.1,stagger:0.12,ease:"power3.out"},0.3);
+  tl.fromTo("#f01-hook",{opacity:0,scale:1.45,y:30,filter:"blur(8px)"},{opacity:1,scale:1,y:0,filter:"blur(0px)",duration:0.75,ease:"power4.out"},0.45);
+  tl.to("#f01-hook",{textShadow:"0 0 28px rgba(204,120,92,.55)",duration:0.35,yoyo:true,repeat:1},0.9);
+  sparks.forEach((el,i)=>{
+    const d=90+i*18;
+    tl.fromTo(el,{opacity:1,scale:1,x:0,y:0},{opacity:0,scale:0.2,x:Math.cos(angles[i])*d,y:Math.sin(angles[i])*d,duration:0.7,ease:"power2.out"},0.55);
+  });
+  tl.set("#f01-bar",{scaleX:0,opacity:1,boxShadow:"0 18px 50px rgba(26,26,26,.12),0 0 0 0 rgba(204,120,92,.35)"},0);
+  tl.to("#f01-bar",{scaleX:1,duration:0.7,ease:"back.out(1.4)"},1.55);
+  tl.to("#f01-bar",{boxShadow:"0 18px 50px rgba(26,26,26,.12),0 0 0 14px rgba(204,120,92,0)",duration:0.8},1.7);
+  tl.fromTo("#f01-caret",{opacity:0,scaleY:0},{opacity:1,scaleY:1,duration:0.18},2.2);
+  tl.to("#f01-caret",{opacity:0.15,duration:0.28,yoyo:true,repeat:7,ease:"steps(1)",overwrite:"auto"},2.4);
+  const o={i:0};
+  tl.to(o,{i:hint.length,duration:1.0,ease:"none",onUpdate:()=>{hintEl.textContent=hint.slice(0,Math.floor(o.i));}},2.3);
+  tl.to("#f01-stage",{scale:1.06,duration:2.4,ease:"power1.inOut"},3.3);
+  tl.to(".f01-orb-lg",{scale:1.5,opacity:0.5,duration:1.2,yoyo:true,repeat:1,ease:"sine.inOut"},3.5);
+  window.__timelines=window.__timelines||{};
+  window.__timelines["01-hook"]=tl;
+})();
+</script>
+</template>

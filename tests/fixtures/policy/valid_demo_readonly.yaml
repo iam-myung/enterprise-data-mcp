@@ -1,0 +1,30 @@
+# Valid static policy — SPEC §11.1 / §11.3 (no secrets).
+policy_profile: demo_readonly
+datasets:
+  sales_inventory_daily:
+    physical_table: v_sales_inventory_daily
+    title: Sales Inventory Daily
+    description: Pre-aggregated daily sales and inventory view
+    capabilities:
+      - READ_DETAIL
+      - FILTER
+      - AGGREGATE
+    default_limit: 50
+    max_limit: 100
+    allowed_fields:
+      business_date:
+        physical_column: business_date
+      product_id:
+        physical_column: product_id
+      product_name:
+        physical_column: product_name
+      category:
+        physical_column: category
+      units_sold:
+        physical_column: units_sold
+      gross_sales:
+        physical_column: gross_sales
+      current_stock:
+        physical_column: current_stock
+      reorder_level:
+        physical_column: reorder_level

@@ -1,0 +1,58 @@
+<template>
+<div data-hf-id="hf-aure" id="root" data-composition-id="02-name" data-start="0" data-duration="7" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-apr3" class="clip" data-start="0" data-duration="7" data-track-index="0" id="f02-bg">
+    <div data-hf-id="hf-lkd0" id="f02-grid"></div>
+  </div>
+  <div data-hf-id="hf-91pv" class="clip" data-start="0" data-duration="7" data-track-index="1" id="f02-stage">
+    <div data-hf-id="hf-ejsn" id="f02-glow"></div>
+    <p data-hf-id="hf-2m4o" id="f02-kicker">✱ ENTERPRISE DATA MCP</p>
+    <h1 data-hf-id="hf-u83n" id="f02-title">企业数据直连 MCP</h1>
+    <div data-hf-id="hf-sf4w" id="f02-underline"></div>
+    <p data-hf-id="hf-7da0" id="f02-sub">只读 MySQL，经协议暴露给 Agent</p>
+    <div data-hf-id="hf-u57g" id="f02-pills">
+      <div data-hf-id="hf-ln2n" class="f02-pill" id="f02-p1"><span data-hf-id="hf-b56p" class="f02-shine"></span>stdio</div>
+      <div data-hf-id="hf-zqgn" class="f02-pill" id="f02-p2"><span data-hf-id="hf-f5zp" class="f02-shine"></span>Streamable HTTP</div>
+      <div data-hf-id="hf-md39" class="f02-pill" id="f02-p3"><span data-hf-id="hf-gcws" class="f02-shine"></span>SSE</div>
+    </div>
+    <p data-hf-id="hf-tq13" id="f02-line">Agent 问 → MCP 查 → 结果回 · 全程可审计</p>
+  </div>
+</div>
+<style>
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");font-weight:400;font-display:block;}
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");font-weight:700;font-display:block;}
+#root{position:relative;width:100%;height:100%;overflow:hidden;color:#1a1a1a}
+.clip{position:absolute}
+#f02-bg{inset:0;background:radial-gradient(1000px 600px at 50% 40%,#f7ebe3 0%,#ebe4da 55%,#e4ddd3 100%)}
+#f02-grid{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(204,120,92,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(204,120,92,.35) 1px,transparent 1px);background-size:80px 80px;transform:perspective(800px) rotateX(55deg) scale(1.4);transform-origin:center 80%}
+#f02-stage{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding-bottom:40px;perspective:1200px}
+#f02-glow{position:absolute;left:50%;top:38%;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(204,120,92,.28),transparent 70%);opacity:0;pointer-events:none}
+#f02-kicker{margin:0;font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:.16em;color:#a85a40;opacity:0}
+#f02-title{margin:0;font-family:"Noto Sans SC",sans-serif;font-size:64px;font-weight:700;letter-spacing:-.02em;opacity:0}
+#f02-underline{width:0;height:4px;background:linear-gradient(90deg,transparent,#cc785c,transparent);border-radius:2px;margin:4px 0 8px}
+#f02-sub{margin:0;font-family:"Noto Sans SC",sans-serif;font-size:28px;color:rgba(26,26,26,.72);opacity:0}
+#f02-pills{display:flex;gap:18px;margin-top:22px}
+.f02-pill{position:relative;overflow:hidden;padding:16px 28px;background:#fffdf8;border:1px solid rgba(26,26,26,.1);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:22px;box-shadow:0 10px 30px rgba(26,26,26,.06);opacity:0}
+.f02-shine{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.65) 50%,transparent 65%)}
+#f02-line{margin:28px 0 0;font-family:"Noto Sans SC",sans-serif;font-size:26px;color:#a85a40;opacity:0}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(()=>{
+  const tl=gsap.timeline({paused:true});
+  tl.fromTo("#f02-glow",{opacity:0,scale:0.5},{opacity:1,scale:1,duration:1.0,ease:"power2.out"},0);
+  tl.fromTo("#f02-grid",{opacity:0,y:40},{opacity:0.18,y:0,duration:1.2,ease:"power2.out"},0);
+  tl.to("#f02-grid",{backgroundPosition:"40px 40px",duration:6,ease:"none"},0.2);
+  tl.fromTo("#f02-kicker",{opacity:0,y:18,scale:0.92},{opacity:1,y:0,scale:1,duration:0.55,ease:"power3.out"},0.2);
+  tl.fromTo("#f02-title",{opacity:0,y:50,scale:0.82,rotateX:35},{opacity:1,y:0,scale:1,rotateX:0,duration:0.85,ease:"power4.out"},0.55);
+  tl.to("#f02-underline",{width:420,duration:0.55,ease:"power3.inOut"},1.25);
+  tl.fromTo("#f02-sub",{opacity:0,y:20},{opacity:1,y:0,duration:0.45,ease:"power3.out"},1.55);
+  tl.fromTo(".f02-pill",{opacity:0,y:60,rotateY:-40,scale:0.85},{opacity:1,y:0,rotateY:0,scale:1,duration:0.65,stagger:0.14,ease:"back.out(1.8)"},2.1);
+  tl.fromTo(".f02-shine",{xPercent:-120},{xPercent:220,duration:0.7,stagger:0.12,ease:"power2.inOut"},2.7);
+  tl.to("#f02-p2",{scale:1.08,boxShadow:"0 0 0 10px rgba(204,120,92,.2)",duration:0.35,yoyo:true,repeat:1,ease:"power2.out"},4.0);
+  tl.fromTo("#f02-line",{opacity:0,y:18,scale:0.96},{opacity:1,y:0,scale:1,duration:0.5,ease:"power3.out"},4.5);
+  tl.to("#f02-glow",{scale:1.25,duration:2,ease:"sine.inOut"},5);
+  window.__timelines=window.__timelines||{};
+  window.__timelines["02-name"]=tl;
+})();
+</script>
+</template>

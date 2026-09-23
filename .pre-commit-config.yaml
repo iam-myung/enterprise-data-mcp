@@ -1,0 +1,38 @@
+repos:
+  - repo: local
+    hooks:
+      - id: import-linter
+        name: import-linter
+        entry: lint-imports
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: ruff-domain
+        name: ruff (domain)
+        entry: ruff check src/enterprise_data_mcp/domain
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: mypy-domain
+        name: mypy strict (domain)
+        entry: mypy --strict src/enterprise_data_mcp/domain
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: bandit-domain
+        name: bandit (domain)
+        entry: bandit -r src/enterprise_data_mcp/domain -q
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: pip-audit
+        name: pip-audit
+        entry: pip-audit --path .
+        language: system
+        pass_filenames: false
+      - id: quality-gate
+        name: quality-gate
+        entry: python -m scripts.quality_gate
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

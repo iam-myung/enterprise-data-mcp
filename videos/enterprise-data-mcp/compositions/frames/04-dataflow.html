@@ -1,0 +1,98 @@
+<template>
+<div data-hf-id="hf-spq3" id="root" data-composition-id="04-dataflow" data-start="0" data-duration="12" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-unwf" class="clip" data-start="0" data-duration="12" data-track-index="0" id="f04-bg">
+    <div data-hf-id="hf-novl" id="f04-scan"></div>
+  </div>
+  <div data-hf-id="hf-9053" class="clip" data-start="0" data-duration="12" data-track-index="1" id="f04-stage">
+    <p data-hf-id="hf-a2os" id="f04-title">一次查询怎么跑起来</p>
+    <svg data-hf-id="hf-qikr" id="f04-beams" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <path data-hf-id="hf-eccd" id="f04-b1g" d="M340 520 L620 520" fill="none" stroke="rgba(204,120,92,.25)" stroke-width="10" />
+      <path data-hf-id="hf-0nj5" id="f04-b2g" d="M740 520 L1020 520" fill="none" stroke="rgba(204,120,92,.25)" stroke-width="10" />
+      <path data-hf-id="hf-qw93" id="f04-b3g" d="M1140 520 L1420 520" fill="none" stroke="rgba(204,120,92,.25)" stroke-width="10" />
+      <path data-hf-id="hf-eql8" id="f04-b1" d="M340 520 L620 520" fill="none" stroke="#cc785c" stroke-width="3" />
+      <path data-hf-id="hf-uinc" id="f04-b2" d="M740 520 L1020 520" fill="none" stroke="#cc785c" stroke-width="3" />
+      <path data-hf-id="hf-lh3q" id="f04-b3" d="M1140 520 L1420 520" fill="none" stroke="#cc785c" stroke-width="3" />
+    </svg>
+    <div data-hf-id="hf-msxd" class="f04-node" id="f04-n1"><span data-hf-id="hf-rdw0" class="f04-halo"></span><b data-hf-id="hf-4yau">Agent</b><i data-hf-id="hf-umhq">提问</i></div>
+    <div data-hf-id="hf-qr1e" class="f04-node" id="f04-n2"><span data-hf-id="hf-goa0" class="f04-halo"></span><b data-hf-id="hf-vrrn">MCP Host</b><i data-hf-id="hf-f9zt">协议入口</i></div>
+    <div data-hf-id="hf-up5f" class="f04-node" id="f04-n3"><span data-hf-id="hf-fhcx" class="f04-halo"></span><b data-hf-id="hf-8jc3">Query</b><i data-hf-id="hf-bfrr">业务服务</i></div>
+    <div data-hf-id="hf-77nw" class="f04-node" id="f04-n4"><span data-hf-id="hf-fvny" class="f04-halo"></span><b data-hf-id="hf-ha8t">MySQL</b><i data-hf-id="hf-ma1k">只读库</i></div>
+    <div data-hf-id="hf-poni" id="f04-trail">
+      <i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i>
+    </div>
+    <div data-hf-id="hf-9pbz" id="f04-pkt"><span data-hf-id="hf-kjdm" id="f04-pkt-core"></span></div>
+    <div data-hf-id="hf-yiv0" id="f04-burst"><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i><i data-hf-id="hf-2krg"></i><i data-hf-id="hf-oz7w"></i><i data-hf-id="hf-okwv"></i><i data-hf-id="hf-o6lu"></i><i data-hf-id="hf-jqbp"></i></div>
+    <p data-hf-id="hf-pxou" id="f04-status">准备发送…</p>
+    <div data-hf-id="hf-rk38" id="f04-shock"></div>
+  </div>
+</div>
+<style>
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");font-weight:400;font-display:block;}
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");font-weight:700;font-display:block;}
+#root{position:relative;width:100%;height:100%;overflow:hidden;color:#1a1a1a}
+.clip{position:absolute}
+#f04-bg{inset:0;background:radial-gradient(1100px 700px at 50% 45%,#f7efe6 0%,#e8e0d6 100%)}
+#f04-scan{position:absolute;left:0;right:0;height:120px;top:-120px;background:linear-gradient(180deg,transparent,rgba(204,120,92,.12),transparent);opacity:0}
+#f04-stage{inset:0}
+#f04-title{position:absolute;top:90px;left:0;right:0;text-align:center;margin:0;font-family:"Noto Sans SC",sans-serif;font-size:40px;font-weight:700;color:#a85a40;opacity:0}
+#f04-beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#f04-b1,#f04-b2,#f04-b3,#f04-b1g,#f04-b2g,#f04-b3g{stroke-dasharray:300;stroke-dashoffset:300;opacity:0}
+.f04-node{position:absolute;top:400px;z-index:3;width:220px;height:160px;background:#fffdf8;border:1px solid rgba(26,26,26,.1);border-radius:18px;box-shadow:0 16px 40px rgba(26,26,26,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;overflow:visible}
+.f04-halo{position:absolute;inset:-14px;border-radius:24px;border:2px solid rgba(204,120,92,.0);pointer-events:none}
+.f04-node b{font-family:"JetBrains Mono",monospace;font-size:26px;position:relative;z-index:1}
+.f04-node i{font-style:normal;font-family:"Noto Sans SC",sans-serif;font-size:18px;color:rgba(26,26,26,.68);position:relative;z-index:1}
+#f04-n1{left:170px}#f04-n2{left:570px}#f04-n3{left:970px}#f04-n4{left:1370px}
+#f04-pkt{position:absolute;top:490px;left:244px;width:40px;height:40px;opacity:0;z-index:5}
+#f04-pkt-core{display:block;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#efc3b0 35%,#cc785c);box-shadow:0 0 28px rgba(204,120,92,.7),0 0 60px rgba(204,120,92,.35)}
+#f04-trail{position:absolute;top:502px;left:256px;width:16px;height:16px;z-index:4;pointer-events:none}
+#f04-trail i{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(204,120,92,.55);left:0;top:0;opacity:0}
+#f04-burst{position:absolute;top:510px;left:1480px;width:0;height:0;z-index:6;pointer-events:none}
+#f04-burst i{position:absolute;width:10px;height:10px;border-radius:50%;background:#cc785c;opacity:0;left:0;top:0}
+#f04-status{position:absolute;left:0;right:0;bottom:120px;text-align:center;margin:0;font-family:"JetBrains Mono",monospace;font-size:22px;letter-spacing:.06em;color:rgba(26,26,26,.72);opacity:0}
+#f04-shock{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.35),transparent 50%);opacity:0;pointer-events:none}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(()=>{
+  const tl=gsap.timeline({paused:true});
+  const status=document.getElementById("f04-status");
+  const setStatus=(t)=>{status.textContent=t;};
+  const trail=[...document.querySelectorAll("#f04-trail i")];
+  const burst=[...document.querySelectorAll("#f04-burst i")];
+  const hop=(nodeSel,x,t,label)=>{
+    tl.call(()=>setStatus(label),null,t);
+    tl.to("#f04-pkt",{x:x,duration:0.95,ease:"power3.inOut"},t);
+    tl.to("#f04-trail",{x:x,duration:0.95,ease:"power3.inOut"},t);
+    trail.forEach((el,i)=>{
+      tl.fromTo(el,{opacity:0.7,scale:1,x:0},{opacity:0,scale:0.2,x:-(i+1)*18,duration:0.45,ease:"power2.out"},t+0.15+i*0.05);
+    });
+    tl.to(nodeSel,{y:-12,scale:1.06,duration:0.2,yoyo:true,repeat:1,ease:"power2.out"},t+0.85);
+    tl.to(`${nodeSel} .f04-halo`,{borderColor:"rgba(204,120,92,.7)",scale:1.15,opacity:1,duration:0.25,yoyo:true,repeat:1},t+0.85);
+    tl.fromTo("#f04-shock",{opacity:0.35},{opacity:0,duration:0.25},t+0.9);
+    tl.fromTo("#f04-stage",{x:0},{x:6,duration:0.05,yoyo:true,repeat:3,ease:"power1.inOut"},t+0.88);
+  };
+  tl.fromTo("#f04-scan",{opacity:0,y:0},{opacity:1,y:1200,duration:2.8,ease:"none"},0.2);
+  tl.fromTo("#f04-title",{opacity:0,y:24,scale:0.94},{opacity:1,y:0,scale:1,duration:0.55,ease:"power4.out"},0.1);
+  tl.fromTo(".f04-node",{opacity:0,y:50,scale:0.75,rotateY:-25},{opacity:1,y:0,scale:1,rotateY:0,duration:0.6,stagger:0.14,ease:"back.out(1.6)"},0.65);
+  ["#f04-b1g","#f04-b1","#f04-b2g","#f04-b2","#f04-b3g","#f04-b3"].forEach((sel,i)=>{
+    tl.to(sel,{strokeDashoffset:0,opacity:i%2?0.95:0.55,duration:0.4,ease:"power2.out"},1.9+i*0.12);
+  });
+  tl.fromTo("#f04-status",{opacity:0,y:10},{opacity:1,y:0,duration:0.3},2.9);
+  tl.fromTo("#f04-pkt",{opacity:0,scale:0.2},{opacity:1,scale:1,duration:0.4,ease:"back.out(2.5)"},3.05);
+  tl.to("#f04-pkt-core",{scale:1.25,duration:0.25,yoyo:true,repeat:1},3.2);
+  hop("#f04-n1",0,3.3,"tools/call · query_data");
+  hop("#f04-n2",400,4.5,"MCP Host · 鉴权与会话");
+  hop("#f04-n3",800,5.9,"Query Service · 策略校验");
+  hop("#f04-n4",1200,7.3,"MySQL · SELECT … LIMIT");
+  tl.to("#f04-pkt-core",{scale:1.45,duration:0.2,yoyo:true,repeat:5,ease:"power1.inOut"},8.4);
+  burst.forEach((el,i)=>{
+    const a=(i/burst.length)*Math.PI*2;
+    tl.fromTo(el,{opacity:1,scale:1,x:0,y:0},{opacity:0,scale:0.2,x:Math.cos(a)*90,y:Math.sin(a)*90,duration:0.65,ease:"power2.out"},8.6);
+  });
+  tl.call(()=>setStatus("结果准备回传 →"),null,10.0);
+  tl.to(["#f04-b1","#f04-b2","#f04-b3"],{opacity:0.35,duration:0.4,yoyo:true,repeat:3},10.0);
+  window.__timelines=window.__timelines||{};
+  window.__timelines["04-dataflow"]=tl;
+})();
+</script>
+</template>

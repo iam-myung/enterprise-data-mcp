@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-data-mcp"
+version = "0.1.0"
+description = "Enterprise read-only MySQL MCP service"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "fastmcp==4.0.3",
+    "pyyaml==6.0.3",
+    "pydantic==2.13.4",
+    "mysql-connector-python==9.3.0",
+    "opentelemetry-api==1.44.0",
+    "opentelemetry-sdk==1.44.0",
+    "prometheus_client==0.26.0",
+]
+
+[project.scripts]
+enterprise-data-mcp-stdio = "enterprise_data_mcp.hosts.stdio:main"
+enterprise-data-mcp-http = "enterprise_data_mcp.hosts.streamable_http:main"
+enterprise-data-mcp-sse = "enterprise_data_mcp.hosts.sse:main"
+enterprise-data-mcp-demo = "enterprise_data_mcp_demo.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-timeout>=2.3",
+    "pytest-cov>=5.0",
+    "coverage>=7.0",
+    "import-linter>=2.1",
+    "pre-commit>=3.6",
+    "ruff>=0.8",
+    "mypy>=1.11",
+    "bandit>=1.7",
+    "pip-audit>=2.7",
+    "types-PyYAML>=6.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+timeout = 30
+
+# SPEC §17 / §20 — Domain line >90%, branch >80% (enforced in quality_gate, not relaxed here)
+[tool.coverage.run]
+branch = true
+source = ["enterprise_data_mcp.domain"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+mypy_path = "src"
+packages = ["enterprise_data_mcp.domain"]
+
+[tool.bandit]
+skips = []
+
+[tool.bandit.assert_used]
+skips = ["*_test.py", "*/tests/*"]

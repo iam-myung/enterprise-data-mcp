@@ -1,0 +1,67 @@
+<template>
+<div data-hf-id="hf-4gc4" id="root" data-composition-id="07-cta" data-start="0" data-duration="7" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-fiuc" class="clip" data-start="0" data-duration="7" data-track-index="0" id="f07-bg">
+    <div data-hf-id="hf-eppg" id="f07-glow"></div>
+    <div data-hf-id="hf-xrji" id="f07-glow2"></div>
+    <div data-hf-id="hf-iqns" class="f07-star" style="left:18%;top:22%"></div>
+    <div data-hf-id="hf-pk90" class="f07-star" style="left:78%;top:28%"></div>
+    <div data-hf-id="hf-p139" class="f07-star" style="left:30%;top:70%"></div>
+    <div data-hf-id="hf-tse8" class="f07-star" style="left:85%;top:68%"></div>
+    <div data-hf-id="hf-spw4" class="f07-star" style="left:55%;top:16%"></div>
+  </div>
+  <div data-hf-id="hf-fbl6" class="clip" data-start="0" data-duration="7" data-track-index="1" id="f07-stage">
+    <p data-hf-id="hf-xlht" id="f07-repo">enterprise-data-mcp</p>
+    <h1 data-hf-id="hf-stzq" id="f07-title">企业数据直连 MCP</h1>
+    <p data-hf-id="hf-izqf" id="f07-line">Agent 直连只读库</p>
+    <div data-hf-id="hf-2wp5" id="f07-rule"></div>
+    <p data-hf-id="hf-cecj" id="f07-meta">stdio · Streamable HTTP · SSE</p>
+    <p data-hf-id="hf-55cq" id="f07-tag">READONLY · AUDITABLE</p>
+    <div data-hf-id="hf-x9tv" id="f07-burst"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i></div>
+  </div>
+</div>
+<style>
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");font-weight:400;font-display:block;}
+@font-face{font-family:"Noto Sans SC";src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");font-weight:700;font-display:block;}
+#root{position:relative;width:100%;height:100%;overflow:hidden;color:#f5f0e8}
+.clip{position:absolute}
+#f07-bg{inset:0;background:#12110f}
+#f07-glow{position:absolute;left:50%;top:42%;width:700px;height:700px;margin:-350px 0 0 -350px;border-radius:50%;background:radial-gradient(circle,rgba(204,120,92,.32) 0%,rgba(204,120,92,0) 70%);opacity:0}
+#f07-glow2{position:absolute;left:50%;top:42%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;border:1px solid rgba(204,120,92,.35);opacity:0}
+.f07-star{position:absolute;width:4px;height:4px;border-radius:50%;background:#cc785c;opacity:0;box-shadow:0 0 10px rgba(204,120,92,.8)}
+#f07-stage{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding-bottom:50px}
+#f07-repo{margin:0;font-family:"JetBrains Mono",monospace;font-size:28px;color:#cc785c;opacity:0;letter-spacing:.04em;text-shadow:0 0 18px rgba(204,120,92,.5)}
+#f07-title{margin:0;font-family:"Noto Sans SC",sans-serif;font-size:52px;font-weight:700;opacity:0}
+#f07-line{margin:0;font-family:"Noto Sans SC",sans-serif;font-size:30px;color:rgba(245,240,232,.78);opacity:0}
+#f07-rule{width:0;height:2px;background:#cc785c;margin:8px 0;box-shadow:0 0 12px rgba(204,120,92,.8)}
+#f07-meta{margin:8px 0 0;font-family:"JetBrains Mono",monospace;font-size:22px;color:rgba(245,240,232,.85);opacity:0}
+#f07-tag{margin:0;font-family:"JetBrains Mono",monospace;font-size:16px;letter-spacing:.18em;color:#cc785c;opacity:0}
+#f07-burst{position:absolute;left:50%;top:45%;width:0;height:0;pointer-events:none}
+#f07-burst i{position:absolute;width:8px;height:8px;border-radius:50%;background:#cc785c;opacity:0}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(()=>{
+  const tl=gsap.timeline({paused:true});
+  const burst=[...document.querySelectorAll("#f07-burst i")];
+  tl.fromTo("#f07-glow",{opacity:0,scale:0.4},{opacity:1,scale:1,duration:1.1,ease:"power2.out"},0);
+  tl.fromTo("#f07-glow2",{opacity:0,scale:0.5},{opacity:1,scale:1.4,duration:1.4,ease:"power2.out"},0.15);
+  tl.fromTo(".f07-star",{opacity:0,scale:0},{opacity:1,scale:1,duration:0.5,stagger:0.08,ease:"back.out(2)"},0.2);
+  tl.to(".f07-star",{opacity:0.25,scale:0.6,duration:1.2,yoyo:true,repeat:2,stagger:0.1,ease:"sine.inOut"},0.8);
+  tl.fromTo("#f07-repo",{opacity:0,y:28,scale:0.85},{opacity:1,y:0,scale:1,duration:0.65,ease:"power4.out"},0.3);
+  tl.fromTo("#f07-title",{opacity:0,scale:1.35,y:20},{opacity:1,scale:1,y:0,duration:0.8,ease:"power4.out"},0.85);
+  burst.forEach((el,i)=>{
+    const a=(i/burst.length)*Math.PI*2;
+    tl.fromTo(el,{opacity:1,scale:1,x:0,y:0},{opacity:0,scale:0.2,x:Math.cos(a)*110,y:Math.sin(a)*70,duration:0.7,ease:"power2.out"},1.0);
+  });
+  tl.fromTo("#f07-line",{opacity:0,y:20},{opacity:1,y:0,duration:0.5,ease:"power3.out"},1.9);
+  tl.to("#f07-rule",{width:300,duration:0.55,ease:"power3.inOut"},2.5);
+  tl.fromTo("#f07-meta",{opacity:0,y:16,scale:0.96},{opacity:1,y:0,scale:1,duration:0.45,ease:"power3.out"},3.3);
+  tl.fromTo("#f07-tag",{opacity:0,y:12},{opacity:1,y:0,duration:0.4,ease:"power3.out"},4.0);
+  tl.to("#f07-glow",{scale:1.2,duration:2.2,ease:"sine.inOut"},4.2);
+  tl.to("#f07-glow2",{scale:1.7,opacity:0.4,duration:2.2,ease:"sine.inOut"},4.2);
+  tl.to("#f07-repo",{textShadow:"0 0 28px rgba(204,120,92,.9)",duration:0.6,yoyo:true,repeat:1},4.8);
+  window.__timelines=window.__timelines||{};
+  window.__timelines["07-cta"]=tl;
+})();
+</script>
+</template>

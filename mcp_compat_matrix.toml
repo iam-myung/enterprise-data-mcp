@@ -1,0 +1,25 @@
+# Locked by Step 1-SMOKE after real transport handshakes.
+# Do not silently downgrade primary_protocol or swap FastMCP for a second high-level API.
+
+[runtime]
+python = "3.11.16"
+fastmcp = "4.0.3"
+mcp = "2.2.0"
+mcp_types = "2.2.0"
+primary_protocol = "2026-07-28"
+legacy_sse_protocol = "2025-11-25"
+
+[transports.stdio]
+role = "primary"
+protocol_version = "2026-07-28"
+
+[transports.streamable_http]
+role = "primary"
+path = "/mcp"
+protocol_version = "2026-07-28"
+
+[transports.sse]
+role = "legacy_compat"
+sse_path = "/sse"
+message_path = "/messages/"
+protocol_version = "2025-11-25"

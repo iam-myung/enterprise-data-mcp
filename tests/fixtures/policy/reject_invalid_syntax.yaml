@@ -1,0 +1,4 @@
+policy_profile: demo_readonly
+datasets:
+  sales_inventory_daily: [
+    this is : not: valid: yaml:::
