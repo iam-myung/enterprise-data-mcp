@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>产品演示 · 企业数据直连 MCP 服务</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --ink: #1a2332;
+      --muted: #4a5b73;
+      --primary: #2b5ea7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    main {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      letter-spacing: -0.02em;
+    }
+    .lede {
+      margin: 0 0 28px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .player {
+      background: #0f1724;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(26, 35, 50, 0.12);
+    }
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+      background: #000;
+    }
+    .links {
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+    .links a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .note {
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>企业数据直连 MCP · 产品演示</h1>
+    <p class="lede">约 1 分钟无旁白短片：提问 UI → MCP 数据流 → 结果回写 → 只读与审计护栏。</p>
+    <div class="player">
+      <video
+        controls
+        playsinline
+        preload="metadata"
+        poster="demo-poster.jpg"
+        src="demo.mp4"
+      >
+        你的浏览器不支持 video 标签。请
+        <a href="demo.mp4">下载 demo.mp4</a>
+        本地观看。
+      </video>
+    </div>
+    <p class="links">
+      <a href="demo.mp4">下载视频</a>
+      ·
+      <a href="https://github.com/iam-myung/enterprise-data-mcp">返回仓库</a>
+    </p>
+    <p class="note">本页由 GitHub Pages 托管；仓库文件页无法内嵌播放 mp4，请在此页在线观看。</p>
+  </main>
+</body>
+</html>

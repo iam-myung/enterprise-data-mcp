@@ -1,16 +1,28 @@
-# 企业数据直连 MCP 服务
+# 企业数据直连 MCP 服务（enterprise-data-mcp）
 
 本地演示 / 参考实现：企业**只读** MySQL 数据经 MCP 暴露给 Agent（stdio · Streamable HTTP · 旧 SSE），含审计与 Demo Agent。
 
-> **定位**：V1 本地验收完成（见 `.docs/V1_DELIVERY.md`）。**非生产**：无公网鉴权、无 SSO、无 SLA；默认仅本机回环，勿直接暴露公网。
+仓库：https://github.com/iam-myung/enterprise-data-mcp
+
+> **定位**：V1 本地验收完成。**非生产**：无公网鉴权、无 SSO、无 SLA；默认仅本机回环，勿直接暴露公网。
+
+## 产品演示
+
+约 1 分钟无旁白短片：提问 UI → MCP 数据流 → 结果回写 → 只读与审计护栏。
+
+[![产品演示封面](docs/demo-poster.jpg)](https://iam-myung.github.io/enterprise-data-mcp/demo.html)
+
+**[在线观看（GitHub Pages）](https://iam-myung.github.io/enterprise-data-mcp/demo.html)** · 下载 [`docs/demo.mp4`](docs/demo.mp4)（约 5MB / 58 秒）
+
+> 首次使用需在 GitHub 仓库 **Settings → Pages** 中：Source 选 `Deploy from a branch`，Branch 选 `main` / `/docs`，保存后等待 1～2 分钟再打开上方链接。
+>
+> 片源工程在 [`videos/enterprise-data-mcp/`](videos/enterprise-data-mcp/)（HyperFrames）。需要重渲时进入该目录执行 `npm run render`。
 
 | 文档 | 说明 |
 | --- | --- |
-| [.docs/PRD.md](.docs/PRD.md) · [SPEC.md](.docs/SPEC.md) · [API.md](.docs/API.md) | 产品 / 技术 / MCP 契约 |
-| [.docs/V1_DELIVERY.md](.docs/V1_DELIVERY.md) | 交付与验收状态（权威） |
 | [DEPENDENCIES.md](DEPENDENCIES.md) | 依赖用途与钉版本 |
 | [mcp_compat_matrix.toml](mcp_compat_matrix.toml) | MCP 协议 / FastMCP 兼容矩阵 |
-| [工程指导.html](工程指导.html) | 可选：源码导览（教学用） |
+| [`docs/demo.html`](docs/demo.html) · [`docs/demo.mp4`](docs/demo.mp4) | GitHub Pages 静态演示页与仓库内嵌片源 |
 
 下文保证：在仓库根按步骤可从零安装、启动，并完成一次真实查询。
 
@@ -23,10 +35,11 @@
 ├── src/enterprise_data_mcp/       # MCP 服务
 ├── src/enterprise_data_mcp_demo/  # Demo Agent（与服务端隔离）
 ├── tests/  scripts/  config/  docker/
+├── docs/                          # GitHub Pages：demo.html + demo.mp4
+├── videos/enterprise-data-mcp/    # HyperFrames 片源工程
 ├── pyproject.toml                 # 包元数据与依赖（权威）
 ├── requirements.txt               # 由 toml 导出（兼容用）
-├── requirements-dev.txt
-└── .docs/                         # 契约与交付说明
+└── requirements-dev.txt
 ```
 
 请始终在仓库根工作：`cd <repo>`。
